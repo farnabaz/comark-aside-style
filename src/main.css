@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+:root {
+  /* Aside palette (dark theme) */
+  --background: #171717;
+  --foreground: #fafafa;
+  --foreground-80: rgba(250, 250, 250, 0.8);
+  --muted-foreground: rgba(250, 250, 250, 0.55);
+  --muted-foreground-80: rgba(250, 250, 250, 0.44);
+  --border: rgba(250, 250, 250, 0.1);
+  --yc-brand: #f05f22;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --tracking: 0.07em;
+  color-scheme: dark;
+}
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground-80);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.625;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+#root {
+  min-height: 100vh;
+}
+body {
+  padding: 96px 24px;
+}
+.comark-content{
+  width: 100%;
+  max-width: 576px;
+  margin: 0 auto;
+  color: var(--foreground-80);
+}
+h1 + p{
+  margin-top: 2rem;
+}
+h1 + p,
+p + p,
+p + ul {
+  margin-bottom: 1.5rem;
+}
+/* Headings — small, uppercase, tracked. NOT large display type. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--foreground);
+  margin: 0;
+}
+
+
+p {
+  margin: 0;
+  color: inherit;
+}
+strong,
+b {
+  color: var(--foreground);
+  font-weight: 600;
+  letter-spacing: var(--tracking);
+}
+/* Lists */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul > li,
+ol > li {
+  position: relative;
+  padding-left: 1.25rem;           /* pl-5 */
+  color: var(--foreground-80);
+}
+ul > li::before {
+  content: '-';
+  position: absolute;
+  left: 0.25rem;
+  color: var(--foreground-80);
+}
+/* Horizontal rule — render as space, not a visible line (the real site uses
+   `space-y-8` instead of an <hr>). The markdown still emits one though, so
+   hide it but keep the gap. */
+hr {
+  width: 100%;
+  height: 0;
+  border: 0;
+  margin: 0;
+  visibility: hidden;
+}
+/* Links */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--muted-foreground-80);  /* /40 */
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+a:hover {
+  text-decoration-color: var(--muted-foreground);
+}
+/* YC link */
+a[href*='ycombinator'] {
+  color: var(--yc-brand);
+  text-decoration-color: rgba(240, 95, 34, 0.2);
+}
+a[href*='ycombinator']:hover {
+  text-decoration-color: rgba(240, 95, 34, 0.6);
+}
+
+pre {
+  border-left: 10px solid var(--border);
+  padding-left: 1rem;
+}
+
+/* Images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+/* Footer */
+footer {
+  gap: 0.25rem;
+  color: rgba(250, 250, 250, 0.44); /* muted-foreground/80 */
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+}
+footer a {
+  font-size: 12px;
+  text-decoration-color: rgba(250, 250, 250, 0.3);
+}
+footer a:hover {
+  text-decoration-color: var(--muted-foreground);
+}
